@@ -39,7 +39,7 @@ end
 gem 'unicorn'
 
 group :development do
-  gem 'capistrano-rails', '~> 1.0.0'
+  gem 'capistrano', '2.15.5'
 end
 
 # Use Capistrano for deployment
