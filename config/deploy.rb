@@ -1,5 +1,9 @@
+default_run_options[:shell] = '/bin/bash --login'
 require "bundler/capistrano"
 #require "rvm/capistrano"
+set :default_environment, {
+    'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 server "192.241.183.152", :web, :app, :db, primary: true
 
