@@ -13,8 +13,8 @@ development:
   encoding: utf8
   database: duty_development
   pool: 5
-  username: root
-  password:
+  username: rails
+  password: rails
   socket: /var/run/mysqld/mysqld.sock
 
 # Warning: The database defined as "test" will be erased and
@@ -25,8 +25,8 @@ test:
   encoding: utf8
   database: duty_test
   pool: 5
-  username: root
-  password:
+  username: rails
+  password: rails
   socket: /var/run/mysqld/mysqld.sock
 
 production:

@@ -1,5 +1,9 @@
+default_run_options[:shell] = '/bin/bash --login'
 require "bundler/capistrano"
 #require "rvm/capistrano"
+set :default_environment, {
+    'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
+}
 
 server "192.241.183.152", :web, :app, :db, primary: true
 
@@ -21,6 +25,8 @@ ssh_options[:forward_agent] = true
 after "deploy", "deploy:cleanup" # keep only the last 5 releases
 
 namespace :deploy do
+  # add reload and upgrade should fix problems with unicorn restart after adding new gem or creating migration instead of this you can use 'cap deploy:stop' 'cap deploy:start' everytime after 'cap deploy'
+  # %w[start stop restart reload upgrade].each do |command|
   %w[start stop restart].each do |command|
     desc "#{command} unicorn server"
     task command, roles: :app, except: {no_release: true} do
