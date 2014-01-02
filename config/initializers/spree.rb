@@ -13,3 +13,4 @@ end
 
 Spree.user_class = "Spree::User"
 Spree::Config.set(:allow_ssl_in_production => false)
+Spree::Config.set(logo: "store/DUTYFARMA.png")
