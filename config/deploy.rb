@@ -5,7 +5,7 @@ set :default_environment, {
     'PATH' => "$HOME/.rbenv/shims:$HOME/.rbenv/bin:$PATH"
 }
 
-server "192.241.183.152", :web, :app, :db, primary: true
+server "95.85.47.102", :web, :app, :db, primary: true
 
 set :application, "duty"
 set :user, "deploy"
