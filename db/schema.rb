@@ -11,7 +11,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140102232710) do
+ActiveRecord::Schema.define(version: 20140103013412) do
+
+  create_table "ckeditor_assets", force: true do |t|
+    t.string   "data_file_name",               null: false
+    t.string   "data_content_type"
+    t.integer  "data_file_size"
+    t.integer  "assetable_id"
+    t.string   "assetable_type",    limit: 30
+    t.string   "type",              limit: 30
+    t.integer  "width"
+    t.integer  "height"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ckeditor_assets", ["assetable_type", "assetable_id"], name: "idx_ckeditor_assetable", using: :btree
+  add_index "ckeditor_assets", ["assetable_type", "type", "assetable_id"], name: "idx_ckeditor_assetable_type", using: :btree
+
+  create_table "spree_activator_translations", force: true do |t|
+    t.integer  "spree_activator_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "description"
+  end
+
+  add_index "spree_activator_translations", ["locale"], name: "index_spree_activator_translations_on_locale", using: :btree
+  add_index "spree_activator_translations", ["spree_activator_id"], name: "index_spree_activator_translations_on_spree_activator_id", using: :btree
 
   create_table "spree_activators", force: true do |t|
     t.string   "description"
@@ -178,6 +206,18 @@ ActiveRecord::Schema.define(version: 20140102232710) do
     t.datetime "updated_at"
   end
 
+  create_table "spree_option_type_translations", force: true do |t|
+    t.integer  "spree_option_type_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "presentation"
+  end
+
+  add_index "spree_option_type_translations", ["locale"], name: "index_spree_option_type_translations_on_locale", using: :btree
+  add_index "spree_option_type_translations", ["spree_option_type_id"], name: "index_spree_option_type_translations_on_spree_option_type_id", using: :btree
+
   create_table "spree_option_types", force: true do |t|
     t.string   "name",         limit: 100
     t.string   "presentation", limit: 100
@@ -236,6 +276,18 @@ ActiveRecord::Schema.define(version: 20140102232710) do
   add_index "spree_orders", ["completed_at"], name: "index_spree_orders_on_completed_at", using: :btree
   add_index "spree_orders", ["number"], name: "index_spree_orders_on_number", using: :btree
   add_index "spree_orders", ["user_id"], name: "index_spree_orders_on_user_id", using: :btree
+
+  create_table "spree_page_translations", force: true do |t|
+    t.integer  "spree_page_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "title"
+    t.text     "body"
+  end
+
+  add_index "spree_page_translations", ["locale"], name: "index_spree_page_translations_on_locale", using: :btree
+  add_index "spree_page_translations", ["spree_page_id"], name: "index_spree_page_translations_on_spree_page_id", using: :btree
 
   create_table "spree_pages", force: true do |t|
     t.string   "title"
@@ -323,6 +375,21 @@ ActiveRecord::Schema.define(version: 20140102232710) do
 
   add_index "spree_product_properties", ["product_id"], name: "index_product_properties_on_product_id", using: :btree
 
+  create_table "spree_product_translations", force: true do |t|
+    t.integer  "spree_product_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
+    t.string   "permalink"
+  end
+
+  add_index "spree_product_translations", ["locale"], name: "index_spree_product_translations_on_locale", using: :btree
+  add_index "spree_product_translations", ["spree_product_id"], name: "index_spree_product_translations_on_spree_product_id", using: :btree
+
   create_table "spree_products", force: true do |t|
     t.string   "name",                 default: "", null: false
     t.text     "description"
@@ -402,6 +469,18 @@ ActiveRecord::Schema.define(version: 20140102232710) do
     t.integer "prototype_id"
     t.integer "property_id"
   end
+
+  create_table "spree_property_translations", force: true do |t|
+    t.integer  "spree_property_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.string   "presentation"
+  end
+
+  add_index "spree_property_translations", ["locale"], name: "index_spree_property_translations_on_locale", using: :btree
+  add_index "spree_property_translations", ["spree_property_id"], name: "index_spree_property_translations_on_spree_property_id", using: :btree
 
   create_table "spree_prototypes", force: true do |t|
     t.string   "name"
@@ -597,12 +676,39 @@ ActiveRecord::Schema.define(version: 20140102232710) do
     t.datetime "deleted_at"
   end
 
+  create_table "spree_taxon_translations", force: true do |t|
+    t.integer  "spree_taxon_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+    t.text     "description"
+    t.string   "meta_title"
+    t.string   "meta_description"
+    t.string   "meta_keywords"
+    t.string   "permalink"
+  end
+
+  add_index "spree_taxon_translations", ["locale"], name: "index_spree_taxon_translations_on_locale", using: :btree
+  add_index "spree_taxon_translations", ["spree_taxon_id"], name: "index_spree_taxon_translations_on_spree_taxon_id", using: :btree
+
   create_table "spree_taxonomies", force: true do |t|
     t.string   "name",                   null: false
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position",   default: 0
   end
+
+  create_table "spree_taxonomy_translations", force: true do |t|
+    t.integer  "spree_taxonomy_id"
+    t.string   "locale"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "spree_taxonomy_translations", ["locale"], name: "index_spree_taxonomy_translations_on_locale", using: :btree
+  add_index "spree_taxonomy_translations", ["spree_taxonomy_id"], name: "index_spree_taxonomy_translations_on_spree_taxonomy_id", using: :btree
 
   create_table "spree_taxons", force: true do |t|
     t.integer  "parent_id"
