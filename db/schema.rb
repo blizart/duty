@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140103013412) do
+ActiveRecord::Schema.define(version: 20140104183750) do
 
   create_table "ckeditor_assets", force: true do |t|
     t.string   "data_file_name",               null: false
@@ -340,6 +340,19 @@ ActiveRecord::Schema.define(version: 20140103013412) do
 
   add_index "spree_payments", ["order_id"], name: "index_spree_payments_on_order_id", using: :btree
 
+  create_table "spree_paypal_express_checkouts", force: true do |t|
+    t.string   "token"
+    t.string   "payer_id"
+    t.string   "transaction_id"
+    t.string   "state",                 default: "complete"
+    t.string   "refund_transaction_id"
+    t.datetime "refunded_at"
+    t.string   "refund_type"
+    t.datetime "created_at"
+  end
+
+  add_index "spree_paypal_express_checkouts", ["transaction_id"], name: "index_spree_paypal_express_checkouts_on_transaction_id", using: :btree
+
   create_table "spree_preferences", force: true do |t|
     t.text     "value"
     t.string   "key"
@@ -540,7 +553,7 @@ ActiveRecord::Schema.define(version: 20140103013412) do
     t.datetime "updated_at"
   end
 
-  add_index "spree_shipping_method_categories", ["shipping_category_id"], name: "index_spree_shipping_method_categories_on_shipping_category_id", using: :btree
+  add_index "spree_shipping_method_categories", ["shipping_category_id", "shipping_method_id"], name: "unique_spree_shipping_method_categories", unique: true, using: :btree
   add_index "spree_shipping_method_categories", ["shipping_method_id"], name: "index_spree_shipping_method_categories_on_shipping_method_id", using: :btree
 
   create_table "spree_shipping_methods", force: true do |t|
@@ -785,17 +798,19 @@ ActiveRecord::Schema.define(version: 20140103013412) do
   add_index "spree_users", ["spree_api_key"], name: "index_spree_users_on_spree_api_key", using: :btree
 
   create_table "spree_variants", force: true do |t|
-    t.string   "sku",                                   default: "",    null: false
-    t.decimal  "weight",        precision: 8, scale: 2
-    t.decimal  "height",        precision: 8, scale: 2
-    t.decimal  "width",         precision: 8, scale: 2
-    t.decimal  "depth",         precision: 8, scale: 2
+    t.string   "sku",                                     default: "",    null: false
+    t.decimal  "weight",          precision: 8, scale: 2
+    t.decimal  "height",          precision: 8, scale: 2
+    t.decimal  "width",           precision: 8, scale: 2
+    t.decimal  "depth",           precision: 8, scale: 2
     t.datetime "deleted_at"
-    t.boolean  "is_master",                             default: false
+    t.boolean  "is_master",                               default: false
     t.integer  "product_id"
-    t.decimal  "cost_price",    precision: 8, scale: 2
+    t.decimal  "cost_price",      precision: 8, scale: 2
     t.string   "cost_currency"
     t.integer  "position"
+    t.boolean  "track_inventory",                         default: true
+    t.datetime "updated_at"
   end
 
   add_index "spree_variants", ["product_id"], name: "index_spree_variants_on_product_id", using: :btree
