@@ -12,3 +12,4 @@
 //= require_tree .
 //= require store/spree_admin_bar
 //= require store/spree_i18n
+//= require store/spree_contact_us

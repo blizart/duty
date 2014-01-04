@@ -1,0 +1,50 @@
+<% content_for :head do -%>
+    <meta name="title" content="<%= t('contact_us') %>">
+<% end -%>
+
+<%= render :partial => 'spree/shared/error_messages', :locals => { :target => @contact } %>
+
+<h1><%= t('contact_us') %></h1>
+<h2 class="ribbon">Siamo ansiosi di sentirti</h2>
+<div class="contact-text">
+    <h3>​ADDRESS</h3>
+    <p>​Via 4 Novembre.<br/>
+    Pratola Peligna, AQ 67035</p> ﻿﻿
+
+    <h3>​E-MAIL</h3>
+    <p><a href="mailto:farmaciapeligna@libero.it">farmaciapeligna@libero.it</a></p>  ﻿﻿
+
+    <h3>PHONE</h3> ﻿
+    <p>Tell. Fax. : 0864/27-4436<br/>
+    Mobil:+39 328-7520491</p>
+</div>
+
+<%= form_for @contact, :url => contacts_path, :html => { :novalidate => '' } do |f| %>
+    <% if SpreeContactUs.require_name %>
+        <p>
+          <%= f.label :name %>
+          <span class="required">*</span><br/>
+          <%= f.text_field :name, class: 'required' %>
+        </p>
+    <% end %>
+    <p>
+      <%= f.label :email %>
+      <span class="required">*</span><br/>
+      <%= f.email_field :email, class: 'required email' %>
+    </p>
+    <% if SpreeContactUs.require_subject %>
+        <p>
+          <%= f.label :subject %>
+          <span class="required">*</span><br/>
+          <%= f.text_field :subject, class: 'required' %>
+        </p>
+    <% end %>
+    <p>
+      <%= f.label :message %>
+      <span class="required">*</span><br/>
+      <%= f.text_area :message, class: 'required' %>
+    </p>
+    <p>
+      <%= f.submit t('submit'), :alt => t('submit'), :id => 'contact_us_contact_submit', :title => t('submit') %>
+    </p>
+<% end %>

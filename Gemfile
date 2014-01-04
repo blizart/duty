@@ -60,3 +60,5 @@ gem 'spree_i18n', github: 'spree/spree_i18n', :branch => '2-1-stable'
 gem 'spree_multilingual_static_content', :github => "azinazadi/spree-multilingual-static-content"
 
 gem 'spree_paypal_express', :github => "radar/better_spree_paypal_express", :branch => '2-1-stable'
+
+gem 'spree_contact_us', :git => 'https://github.com/jdutil/spree_contact_us'

@@ -102,6 +102,13 @@ GIT
       spree_core (~> 2.1.0)
 
 GIT
+  remote: https://github.com/jdutil/spree_contact_us
+  revision: ec742ff30966cbaf040d47cc5377de7d7596e643
+  specs:
+    spree_contact_us (2.1.0)
+      spree_core (~> 2.1.0)
+
+GIT
   remote: https://github.com/spree/spree_auth_devise.git
   revision: a7b47806f332e196af1b6ae170836e7d5346ff36
   branch: 2-1-stable
@@ -385,6 +392,7 @@ DEPENDENCIES
   spree!
   spree_admin_bar!
   spree_auth_devise!
+  spree_contact_us!
   spree_editor!
   spree_gateway!
   spree_i18n!
