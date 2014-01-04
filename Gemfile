@@ -53,10 +53,10 @@ gem 'spree_gateway', :git => 'https://github.com/spree/spree_gateway.git', :bran
 gem 'spree_auth_devise', :git => 'https://github.com/spree/spree_auth_devise.git', :branch => '2-1-stable'
 
 gem 'spree_static_content', :github => 'spree/spree_static_content', :branch => '2-1-stable'
-gem 'spree_multilingual_static_content', :github => "azinazadi/spree-multilingual-static-content"
 gem 'spree_admin_bar', github: 'stefansenk/spree_admin_bar', :branch => '2-1-stable'
 
-gem 'spree_i18n', github: 'spree/spree_i18n', :branch => '2-1-stable'
-
-gem 'spree_paypal_express', :github => "radar/better_spree_paypal_express", :branch => '2-1-stable'
-gem 'spree_editor', :github => 'spree/spree_editor'
+#gem 'spree_i18n', github: 'spree/spree_i18n', :branch => '2-1-stable'
+#gem 'spree_multilingual_static_content', :github => "azinazadi/spree-multilingual-static-content"
+#
+#gem 'spree_paypal_express', :github => "radar/better_spree_paypal_express", :branch => '2-1-stable'
+#gem 'spree_editor', :github => 'spree/spree_editor'
