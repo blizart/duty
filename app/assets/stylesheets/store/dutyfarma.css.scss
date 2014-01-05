@@ -79,8 +79,29 @@ h2.ribbon:after {
   top: -1px;
   width: 0;
 }
-
-h1{
+.no-sidebar {
+  h1{
+    border-top: 1px solid #303030;
+    font-size: 40px;
+    font-weight: 700;
+    margin: 0 auto 10px;
+    padding: 10px 0 0;
+    position: relative;
+    text-align: center;
+    width: 50%;
+  }
+  h1:before{
+    background: none repeat scroll 0 0 #000000;
+    content: "";
+    display: block;
+    height: 3px;
+    left: 0;
+    position: absolute;
+    top: -10px;
+    width: 100%;
+  }
+}
+h1.special-header{
   border-top: 1px solid #303030;
   font-size: 40px;
   font-weight: 700;
@@ -90,7 +111,7 @@ h1{
   text-align: center;
   width: 50%;
 }
-h1:before{
+h1.special-header:before{
   background: none repeat scroll 0 0 #000000;
   content: "";
   display: block;
