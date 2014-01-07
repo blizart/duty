@@ -16,7 +16,7 @@ GIT
 
 GIT
   remote: git://github.com/spree/spree.git
-  revision: 78b09540e165ec3582ba946440218ac78c3c4faa
+  revision: a5a43e930c0a9d6648e6102f8f9b99eb07d5b0ed
   branch: 2-1-stable
   specs:
     spree (2.1.4.beta)
@@ -77,11 +77,11 @@ GIT
 
 GIT
   remote: git://github.com/spree/spree_i18n.git
-  revision: d10d63412f82d950860dcdbde68763f886033aed
+  revision: 6d93b181baefce10bca66c99436d9a4c4d5dee93
   branch: 2-1-stable
   specs:
     spree_i18n (3.0.0)
-      globalize (~> 4.0.0.alpha.3)
+      globalize (~> 4.0.0)
       rails-i18n (~> 0.7.3)
       spree_core (~> 2.1.0)
 
@@ -110,7 +110,7 @@ GIT
 
 GIT
   remote: https://github.com/spree/spree_auth_devise.git
-  revision: a7b47806f332e196af1b6ae170836e7d5346ff36
+  revision: 92b424f05c9fc1b3e8b63a2af9dd2a1bd321b35e
   branch: 2-1-stable
   specs:
     spree_auth_devise (2.1.0)

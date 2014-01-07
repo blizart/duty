@@ -62,3 +62,5 @@ gem 'spree_multilingual_static_content', :github => "azinazadi/spree-multilingua
 gem 'spree_paypal_express', :github => "radar/better_spree_paypal_express", :branch => '2-1-stable'
 
 gem 'spree_contact_us', :git => 'https://github.com/jdutil/spree_contact_us'
+
+gem 'spree_blogging_spree', :github => 'blizart/spree-blogging-spree', :branch => 'master'
