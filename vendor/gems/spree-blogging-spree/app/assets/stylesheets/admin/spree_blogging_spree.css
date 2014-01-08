@@ -1,0 +1,12 @@
+/*
+ *= require admin/spree_backend
+*/
+
+
+#blog_entry_author_id_field .select2-container {
+    width: 100%;
+}
+
+.blog_entry_image_thumbnail img {
+  vertical-align: middle;
+}

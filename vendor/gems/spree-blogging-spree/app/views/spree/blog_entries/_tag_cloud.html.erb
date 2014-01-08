@@ -1,0 +1,5 @@
+<ul class="blog_tag_cloud">
+  <% tag_cloud(Spree::BlogEntry.visible.tag_counts_on(:tags), %w(css1 css2 css3 css4)) do |tag, css_class| %>
+    <li><%= link_to tag.name, blog_tag_path(tag.name), :class => css_class %></li>
+  <% end %>
+</ul>

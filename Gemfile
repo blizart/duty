@@ -42,8 +42,7 @@ group :development do
   gem 'capistrano', '2.15.5'
 end
 
-# Use Capistrano for deployment
-# gem 'capistrano', group: :development
+gem 'seed_dump'
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
@@ -63,4 +62,5 @@ gem 'spree_paypal_express', :github => "radar/better_spree_paypal_express", :bra
 
 gem 'spree_contact_us', :git => 'https://github.com/jdutil/spree_contact_us'
 
-gem 'spree_blogging_spree', :github => 'blizart/spree-blogging-spree', :branch => 'master'
+#gem 'spree_blogging_spree', :github => 'blizart/spree-blogging-spree', :branch => 'master'
+gem 'spree_blogging_spree', :path => "vendor/gems/spree-blogging-spree"
