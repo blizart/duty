@@ -121,3 +121,27 @@ h1.special-header:before{
   top: -10px;
   width: 100%;
 }
+
+//blog
+#blog_entry_container{
+  ul#blog_entry_entries{
+    list-style-type: none;
+    li{
+      margin-bottom: 10px;
+      h2{
+
+      }
+      p{
+
+      }
+    }
+  }
+}
+#news-archive {
+  >li>ul{
+    padding-left: 10px;
+    >li>ul{
+      padding-left: 10px;
+    }
+  }
+}
