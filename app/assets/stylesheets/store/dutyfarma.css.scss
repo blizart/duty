@@ -145,3 +145,33 @@ h1.special-header:before{
     }
   }
 }
+
+//Products
+ul#products{
+  li{
+    a.info {
+     color: #000;
+    }
+  }
+}
+
+.social{
+  float: left;
+  margin-right: 10px;
+}
+.bartolini {
+  float: left;
+  clear: both;
+  margin: 0 0 10px 0;
+}
+.dhl{
+  float: left;
+  clear: both;
+}
+.taxons-list {
+  li{
+    a{
+      font-size: 14px;
+    }
+  }
+}
